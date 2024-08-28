@@ -14,10 +14,14 @@
 Linear time invariant system may be represented in state space form by the following equations:
 </br>
 State equation:
-$$ \dot{x}(t)=A x(t)+B u(t) \tag{1a} $$
+
+$$\dot{x}(t)=A x(t)+B u(t) \tag{1a}$$
+
 Output equation:
-$$ y(t)= C x(t) + D u(t) \tag{1b} $$
-</br>
+
+$$y(t)= C x(t) + D u(t) \tag{1b}$$
+
+
 where, <span style="font-family:Bodoni MT;font-style:italic;font-size:18px">x</span>(<span style="font-family:Bodoni MT;font-style:italic;font-size:18px">t</span>) is state vector, <span style="font-family:Sitka Text;font-style:italic">y</span>(<span style="font-family:Bodoni MT;font-style:italic;font-size:18px">t</span>) is output vector, 
 <span style="font-family:Bodoni MT;font-style:italic;font-size:18px">u</span> is input or control vector, <span style="font-family:Bodoni MT;font-style:italic;font-size:18px">A</span> is system matrix, 
 <span style="font-family:Bodoni MT;font-style:italic;font-size:18px">B</span> is input matrix, <span style="font-family:Bodoni MT;font-style:italic;font-size:18px">C</span> is output matrix and <span style="font-family:Bodoni MT;font-style:italic;font-size:18px">D</span> is feed forward matrix.</br></br>

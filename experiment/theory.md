@@ -2,9 +2,13 @@
 
 Linear time invariant system may be represented in state space form by the following equations:
 State equation:
-$$ \dot{x}(t)=A x(t)+B u(t) \tag{1a} $$
+
+$$\dot{x}(t)=A x(t)+B u(t) \tag{1a}$$
+
 Output equation:
-$$ y(t)= C x(t) + D u(t) \tag{1b} $$
+
+$$y(t)= C x(t) + D u(t) \tag{1b}$$
+
 <b><i>Controllability:</i></b> <br>
 The system described by equation (1a) is said to be state controllable at time <span style="font-family:Bodoni MT;font-style:italic;font-size:18px">t = t</span><sub>0</sub> if it is possible to construct 
 an unconstrained control signal that will transfer an initial state <span style="font-family:Bodoni MT;font-style:italic;font-size:18px">x</span>(<span style="font-family:Bodoni MT;font-style:italic;font-size:18px">t</span><sub>0</sub>)
@@ -12,8 +16,10 @@ to any final state <span style="font-family:Bodoni MT;font-style:italic;font-siz
 <span style="font-family:Bodoni MT;font-style:italic;font-size:18px">t</span><sub>0</sub> &le; <span style="font-family:Bodoni MT;font-style:italic;font-size:18px">t</span> &le; <span style="font-family:Bodoni MT;font-style:italic;font-size:18px">t</span><sub>f</sub>. If every state is controllable, then the system is said to be completely state controllable. </br></br>
 
 Controllability Test:</br>
-The system given by equation (1a) is completely state controllable if and only if the vectors <span style="font-family:Bodoni MT;font-style:italic;font-size:18px">B, AB, A<sup>2</sup>B,...,A<sup>n-1</sup>B</span> are linearly independent or the (n x n) matrix 
-$$ Q_c = [B,AB,A^2B,...A^{n-1}B]$$
+The system given by equation (1a) is completely state controllable if and only if the vectors <span style="font-family:Bodoni MT;font-style:italic;font-size:18px">B, AB, A<sup>2</sup>B,...,A<sup>n-1</sup>B</span> are linearly independent or the (n x n) matrix
+
+$$Q_c = [B,AB,A^2B,...A^{n-1}B]$$
+
 is of rank <span style="font-family:Bodoni MT;font-style:italic;font-size:18px">n. Q</span><sub>c</sub> is commonly called the controllability matrix.
 </br>
 
@@ -23,7 +29,9 @@ over a finite time interval <span style="font-family:Bodoni MT;font-style:italic
 The system is, therefore, completely observable if every transistion of the state eventually affects every element of the output vector. </br></br>
 Observability Test:</br>
 The system is completely observable if and only if the matrix 
-$$ Q_o = [C, CA, CA^2,...,CA^{n-1}]^T$$
+
+$$Q_o = [C, CA, CA^2,...,CA^{n-1}]^T$$
+
 is of rank <span style="font-family:Bodoni MT;font-style:italic;font-size:18px">n</span> or has <span style="font-family:Bodoni MT;font-style:italic;font-size:18px">n</span> linearly independent column vectors. <span style="font-family:Bodoni MT;font-style:italic;font-size:18px">Q</span><sub>o</sub> is commonly called the Observability matrix.</br></br>
 
 <b><i>State Space Model of Inverted Pendulumn on cart:</i></b> <br>
