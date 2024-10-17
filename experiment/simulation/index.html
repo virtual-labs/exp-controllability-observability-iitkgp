@@ -119,7 +119,7 @@
 
             </div><!--First col under 2nd row end-->
             <div class="col-md-6"><!--2nd col under 2nd row start-->
-                <p class="h1"> <b>Simulation</b> </p>
+                <p class="h1"> <b>Simulation </b> </p>
             </div><!--2nd col under 2nd row end-->
             <div class="col-md-3"><!--3rd col under 2nd row start-->
 
@@ -129,21 +129,32 @@
        
     </div><!--First Container under body tag end-->
     
+    	
     <div class="container p-3 my-5 text-left border"><!--3rd Container under body tag start-->
       <div class="row"><!--First row under 3rd container start-->
         <div class="col-md-1"></div><!--First col under 3rd container start& end-->
         <div class="col-md-10"><!--2nd col under 3rd container start-->
             <p class="text-center bg-success"> <a class="nav-link" data-bs-toggle="tab"  id="instcontrol" style="background-color:#128BD9"  ><span class=" h3 text-dark"> Instructions </span></a>
               <ol id="inst" style="display:block;height:200px;overflow-y:auto;text-align:justify">
-                      <li> At first enter the values of the Inverted Pendulum on cart quantities. </li></br>
+                      <li> Enter the values of the Inverted Pendulum on cart quantities. Note: Default values are already given. </li></br>
   
 					  <li> Click on 'State Space Model' button to get the state space form of the system. </li><br/>
 					 
-					 <li> Clicking on 'Test' dropdown-menu for type of test.</li><br/>
+					 <li> Clicking on 'Test' dropdown-menu to select the type of test.</li><br/>
 
-					 <li> Click on the desired option to get the required type of test. </li><br/> 
+					 <li> Click on the desired option to select the required type of test. </li><br/> 
 					 
-					 <li> Click on 'Clear' button for new values of quantities.</li><br/>
+					 <li> Click on the 'Run' button to run the selected test. </li><br/>
+					 
+					 <li> Click on the 'Rank' or 'Determinant'  or "inference' buttons to get the the Controllability test. </li><br/>
+					 
+					 <li> Click on the 'Rank' or 'Determinant'  or "inference' buttons to get the the Observability test. </li><br/>
+					 
+					 					 
+					 <li> Click on 'Clear' button to enter the new values of quantities.</li><br/>
+					  
+					 
+					 
 
 					
 						 
@@ -169,11 +180,11 @@
 			Enter the values of the following quantities: <br/><br/>
 			<!--<img class = "img-fluid" src="./images/Continuous_System.png" class="img-fluid" > <br/></br>-->
 			
-			Mass of the cart :  M (kg) = <input type="number" id="M1" min="0.1" value="0.5" max="1" step="0.05" style="position:absolute;width:25%" ><br/></br>
-			Mass of the pendulum : m (kg) = <input type="number" id="m1" min="0.1" value="0.2" max="1" step="0.05" style="position:absolute;width:25%" ><br/></br>
-			Coefficient of friction for cart :  b (N/m/sec) = <input type="number" id="bc" min="0.01" value="0.1" max="1" step="0.01" style="position:absolute;width:25%" ><br/></br>
-            Length to pendulum center of mass : l (m) = <input type="number" id="l1" min="0.1" value="0.3" max="1" step="0.05" style="position:absolute;width:25%" ><br/></br>	
-            Mass moment of inertia of the pendulum : I (kg.m^2) = <input type="number" id="I1" min="0.001" value="0.006" max="1" step="0.001" style="position:absolute;width:25%" ><br/></br>
+			Mass of the cart :  M (kg) = &nbsp;<input type="number" id="M1" min="0.1" value="0.5" max="1" step="0.05" style="width:25%" ><br/></br>
+			Mass of the pendulum : m (kg) = &nbsp;<input type="number" id="m1" min="0.1" value="0.2" max="1" step="0.05" style="width:25%" ><br/></br>
+			Coefficient of friction for cart :  b (N/m/sec) = &nbsp;<input type="number" id="bc" min="0.01" value="0.1" max="1" step="0.01" style="width:25%" ><br/></br>
+            Length to pendulum center of mass : l (m) = &nbsp;<input type="number" id="l1" min="0.1" value="0.3" max="1" step="0.05" style="width:25%" ><br/></br>	
+            Mass moment of inertia of the pendulum : I (kg.m^2) = &nbsp;<input type="number" id="I1" min="0.001" value="0.006" max="1" step="0.001" style="width:25%" ><br/></br>
             
 			
 			
@@ -181,7 +192,7 @@
 			
 			</div></div>
 			
-			<div id="tfbody" class="card border-0" style="display:none; width:100%;background-color:none">
+			<div id="tfbody" class="card border-0" style="display:none; width:100%;background-color:none;min-width:1000px;">
 			<br/>			
 			<span class="card-text "><b>State Space Model of the Pendulum on Cart</b></span><br/>	
             <img class = "img-fluid" src="./images/SS_Pendulum_Cart.png" class="img-fluid" > <br/></br><br/>
@@ -194,7 +205,10 @@
 			<span class="card-text" ><b style="position:absolute;width: 6%;left:35%;top: 95%;">$$ \frac{mgl(M+m)}{I(M+m)+Mml^2} = $$ </b> &nbsp;&nbsp; <input type="number" id="a_43" value="0" readonly=readonly style="position:absolute;width: 10%;left:52%;top: 101%;"></span>	
 			<span class="card-text" ><b style="position:absolute;width: 6%;left:65%;top: 95%;">$$ \frac{ml}{I(M+m)+Mml^2} = $$ </b> &nbsp;&nbsp; <input type="number" id="b_4" value="0" readonly=readonly style="position:absolute;width: 10%;left:82%;top: 101%;"></span>	
 			<br/><br/>
-			
+			<span class="card-text" id="matA" style="position:absolute;left:5%;top: 120%;"></span> 
+			<span class="card-text" id="matB" style="position:absolute;left:5%;top: 130%;"></span>
+			<span class="card-text" id="matC" style="position:absolute;left:5%;top: 140%;"></span>
+			<span class="card-text" id="matD" style="position:absolute;left:5%;top: 150%;"></span>
 			</div>
 			
 			
@@ -258,26 +272,38 @@
 	<div class="col-md-1"></div>
 	</div>-->
 	</div>
+	<div class="row my-5 gy-2">
+	<div class="col-md-12">	</div>
+	<img  src="./images/SS_Pendulum_Cart.png" style="visibility:hidden; width:50%;height:50%" >
+	</div>
 <div class="row my-5 gy-2">
 	
 	<div class="col-md-12">	
 	 <div class="d-inline-flex p-3 gy-2">			
-		<div class="dropdown">
+		<div class="dropdown" id ="db1" style="display:none">
   <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
     Test
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" id ="run" onclick="CNTR()">Controllability</a></li>
-    <li><a class="dropdown-item" id ="run" onclick="OBSR()">Observability</a></li>
+    <li><a class="dropdown-item"  onclick="test1();">Controllability</a></li>
+    <li><a class="dropdown-item"  onclick="test2();">Observability</a></li>
     </b></br>
   </ul>
 </div>&nbsp;&nbsp;		
 		
-		<button class="btn btn-danger" id ="clr" onclick="refresh()" >Clear</button>
+		
+		<button class="btn btn-success" id ="Trun" onclick="str()" style="display:none">Run</button> &nbsp;&nbsp;
 		
 		
 		
-	</div></div></div>
+		
+		<button class="btn btn-danger" id ="clr" onclick="refresh()" style="display:none">Clear</button>
+		
+		
+		
+	</div></div>
+	<input type="number" id="chktest" value="0" style="visibility:hidden">
+	</div>
 	</br>
 	<div class="row my-5 gy-2">
 	
@@ -286,16 +312,26 @@
 			
 			<!--<img class = "img-fluid" src="./images/DF_IIM.png" class="img-fluid" > <br/></br> -->
 			
-			<div id="tfbody3" class="card" style="display:none;width:100%;min-width:1000px;background-color:none">
+			<div id="tfbody3" class="card card-body text-left" style="display:none;width:100%;min-width:1000px;background-color:none">
 			<br/>	
 			
-			<span class="card-text "><b>Controllability Test</b></span>
+			<span class="card-text text-left"><b>Controllability Test</b></span>
 			
-			$$ Q_c = [B, AB, A^2B, A^3B] $$
-				<p id="Cntrl_Test1"/>
-				<p id="Cntrl_Test2"/>
+			$$ Q_c = [B, \ AB, \ A^2B, \ A^3B] $$
+			<span class="card-text" id="matQcB" ></span><br/<br/>
+			<span class="card-text" id="matQcAB" ></span><br/<br/>
+			<span class="card-text" id="matQcAAB" ></span><br/<br/>
+			<span class="card-text" id="matQcAAAB" ></span><br/<br/><br/>
+			<span class="card-text" id="matQc" ></span><br/<br/>
+			 
+			<button class="btn btn-success" onclick="showRank()">Rank of Qc</button>
+				<span id="Cntrl_Test1" style="display:none"></span><br/><br/>
+			<button class="btn btn-success" onclick="showDetQc()">Determinant of Qc</button>
+			    <span id="Cntrl_Test2" style="display:none"></span><br/><br/>
+			<button class="btn btn-success" onclick="showinfo()">Inference</button>
+				<span id="Cntrl_Test3" style="display:none"></span>
 		    <br/>
-			<span class="card-text" ><b style="position:absolute;width: 6%;left:38%;top: 50%;">$$ Rank(Q_c) = $$ </b> &nbsp;&nbsp; <input type="number" id="RQc" value="0" readonly=readonly style="position:absolute;width: 10%;left:45%;top: 55%;"></span> 					
+								
 			
 			<br/><br/>
 			</div>
@@ -305,15 +341,29 @@
 			<div id="tfbody4" class="card" style="display:none;width:100%;min-width:1000px;background-color:none">
 			<br/>	
 			<span class="card-text "><b>Observability Test</b></span>
-			$$ Q_{o1} = [c_1, c_1A, c_1A^2, c_1A^3]^T $$
-			$$ Q_{o2} = [c_2, c_2A, c_2A^2, c_2A^3]^T $$
-			$$ Q_o = [C, CA, CA^2, CA^3]^T $$
-				<p id="Obsrl_Test1"/>
+			<!--$$ Q_{o1} = [c_1 \ c_1A \ c_1A^2 \ c_1A^3]^T $$
+			$$ Q_{o2} = [c_2 \ c_2A \ c_2A^2 \ c_2A^3]^T $$-->
+			$$ Q_o = [C, \ CA, \ CA^2, \ CA^3]^T $$
+			
+			<span class="card-text" id="matQoC" ></span><br/<br/>
+			<span class="card-text" id="matQoCA" ></span><br/<br/>
+			<span class="card-text" id="matQoCAA" ></span><br/<br/>
+			<span class="card-text" id="matQoCAAA" ></span><br/<br/><br/>
+			<span class="card-text" id="matQo" ></span><br/<br/>
+			 
+			<button class="btn btn-success" onclick="showRankQo()">Rank of Qo</button>
+				<span id="Obsrl_Test5" style="display:none"></span><br/><br/>
+			<button class="btn btn-success" onclick="showDetQo()">Determinant of Qo</button>
+			    <span id="Obsrl_Test6" style="display:none"></span><br/><br/>
+			<button class="btn btn-success" onclick="showinfoQo()">Inference</button>
+				<span id="Obsrl_Test7" style="display:none"></span>
+			<br/>
+				<!--<p id="Obsrl_Test1"/>
 				<p id="Obsrl_Test2"/>
 				<p id="Obsrl_Test3"/>
 				<p id="Obsrl_Test4"/>
 				<p id="Obsrl_Test5"/>
-				<p id="Obsrl_Test6"/>
+				<p id="Obsrl_Test6"/>-->
 		    <br/>
 			<!--<span class="card-text" ><b style="position:absolute;width: 6%;left:38%;top: 50%;">$$ Rank(Q_{o1}) = $$ </b> &nbsp;&nbsp; <input type="number" id="RQo1" value="0" readonly=readonly style="position:absolute;width: 10%;left:45%;top: 55%;"></span> 					
 			<span class="card-text" ><b style="position:absolute;width: 6%;left:38%;top: 70%;">$$ Rank(Q_{o2}) = $$ </b> &nbsp;&nbsp; <input type="number" id="RQo2" value="0" readonly=readonly style="position:absolute;width: 10%;left:45%;top: 75%;"></span> 					
@@ -344,7 +394,7 @@
 	 
 			<div class="col-md-12">
 				<!--img id = "0.3fr" src="./images/plant.png" class="img-fluid" style="display:none">-->
-				<div id = "plotbucket" class="content-center " style="display:none; position: relative; border:3px solid white;height:530px;width:823px ">
+				<div id = "plotbucket" class="content-center " style="display:none; position :relative; border:3px solid white;height:530px;width:823px ">
 				
 				<!--<button type="button" id="exportChart2" class="btn btn-primary"  style="display:none;position:absolute;top:210%;left:28%;">Download Plot</button>-->
 				
