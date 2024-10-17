@@ -430,7 +430,7 @@ function OBSR(){
 			
 			var Qoo= math.matrix([[c11, c12, c13, c14],[c21, c22, c23, c24],[ca11, ca12, ca13, ca14],[ca21, ca22, ca23, ca24]]);
 			
-			document.getElementById('matQo').innerHTML = 'Matrix Q<sub>o</sub> ='+ Qoo;
+			document.getElementById('matQo').innerHTML = 'Q<sub>o</sub> =['+ c11+',\t'+c12+',\t'+c13+',\t'+c14+';\t\t'+c21+','+c22+',\t'+c23+',\t'+c24+',\t'+ ca11+',\t'+ca12+',\t'+ca13+',\t'+ca14+';\t\t'+ca21+','+ca22+',\t'+ca23+',\t'+ca24+']'
 			
 			var DQoo= math.divide(math.round(math.multiply(math.det(Qoo),1000)),1000);
 			console.log(DQoo);
@@ -460,11 +460,13 @@ function OBSR(){
 			var Qo3= math.matrix([[c11, c12, c13, c14],[c21, c22, c23, c24],[ca11, ca12, ca13, ca14],[ca21, ca22, ca23, ca24], [caa11, caa12, caa13, caa14],[caa21, caa22, caa23, caa24],[caa11, caa12, caa13, caa14],[caaa11, caaa12, caaa13, caaa14]]);
 			
 			console.log(Qo3);
-			
-			document.getElementById('matQoC').innerHTML = ' C ='+ C;
-			document.getElementById('matQoCA').innerHTML = ' CA ='+ CA;
-			document.getElementById('matQoCAA').innerHTML = ' CA<sup>2</sup> ='+ CAA;
-			document.getElementById('matQoCAAA').innerHTML = ' CA<sup>3</sup> ='+ CAAA;
+			 
+			 
+			 
+			document.getElementById('matQoC').innerHTML = ' C =['+ c11+',\t'+c12+',\t'+c13+',\t'+c14+';\t\t'+c21+','+c22+',\t'+c23+',\t'+c24+']'
+			document.getElementById('matQoCA').innerHTML = ' CA =['+ ca11+',\t'+ca12+',\t'+ca13+',\t'+ca14+';\t\t'+ca21+','+ca22+',\t'+ca23+',\t'+ca24+']'
+			document.getElementById('matQoCAA').innerHTML = ' CA<sup>2</sup> =['+ caa11+',\t'+caa12+',\t'+caa13+',\t'+caa14+';\t\t'+caa21+','+caa22+',\t'+caa23+',\t'+caa24+']'
+			document.getElementById('matQoCAAA').innerHTML = ' CA<sup>3</sup> =['+ caaa11+',\t'+caaa12+',\t'+caaa13+',\t'+caaa14+';\t\t'+caaa21+','+caaa22+',\t'+caaa23+',\t'+caaa24+']'
 			
 		/*	if (DQo1!=0)
 			{  Obsrl_Test1=" Rank of Q<sub>o1</sub> = Order of A = n = 4";
