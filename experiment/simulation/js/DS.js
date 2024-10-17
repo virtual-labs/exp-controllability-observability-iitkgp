@@ -31,6 +31,9 @@ var dataOPPoints=[];	///for plotting chart
 var dataOPPoints1=[];
 
 //////////////////////
+
+
+
 function system(){
 
             document.getElementById('tfbody').style.display = "block";
@@ -58,9 +61,24 @@ function system(){
 			var a43=math.divide(math.round(math.multiply(math.divide(math.add(math.multiply(m,g,l,M),math.multiply(m,g,l,m)),den),1000)),1000);;
 			var b4=math.divide(math.round(math.multiply(math.divide(math.multiply(m,l),den),1000)),1000);;
 			
-			var a11=a13=a14=a21=a24=a31=a32=a33=a41=a44=b1=b3=0;
-			var a12=a34=1;
+			var a11=a13=a14=a21=a24=a31=a32=a33=a41=a44=b1=b3=c12=c13=c14=c21=c22=c24=d11=d21=0;
+			var a12=a34=c11=c23=1;
 			
+			var mA = math.matrix([[a11, a12, a13, a14], [a21, a22, a23, a24], [a31, a32, a33, a34], [a41, a42, a43, a44]]);
+			var mB = math.matrix([[b1], [b2], [b3], [b4]]);
+			var mC = math.matrix([[c11, c12, c13, c14],[c21, c22, c23, c24]]);
+			var mD = math.matrix([[d11], [d21]]);
+			
+			
+			
+			document.getElementById('matA').innerHTML = ' A =['+ a11+',\t'+a12+',\t'+a13+',\t'+a14+';\t\t'+a21+','+a22+',\t'+a23+',\t'+a24+';\t\t'+a31+',\t'+a32+',\t'+a33+',\t'+a34+';\t\t'+a41+',\t'+a42+',\t'+a43+',\t'+a44+']';
+			document.getElementById('matB').innerHTML = ' B =['+ b1+';\t\t'+b2+';\t\t'+b3+';\t'+b4+']';
+			document.getElementById('matC').innerHTML = ' C =['+ c11+',\t'+c12+',\t'+c13+',\t'+c14+';\t\t'+c21+','+c22+',\t'+c23+',\t'+c24+']';
+			document.getElementById('matD').innerHTML = ' D =['+ d11+';\t\t'+d21+']';
+			
+			//outputText1=" G(s)= ["+b0+"s\u00B2+("+b1+")s+("+b2+ ")] / [" +a0+"s<sup>2</sup>+("+a1+")s+("+a2+ ")]";
+			
+			//matA = "A = ["+a11+","+a12+"
 			
 			console.log(den);
 			
@@ -79,6 +97,10 @@ function system(){
 			document.getElementById('a_42').value = a42;
 	        document.getElementById('a_43').value = a43;
 	        document.getElementById('b_4').value = b4;
+			
+			
+			document.getElementById('clr').style.display="block";
+			document.getElementById('db1').style.display="block";
 			
 			/*
 			var mA = math.matrix([[a11, a12, a13, a14], [a21, a22, a23, a24], [a31, a32, a33, a34], [a41, a42, a43, a44]]);
@@ -117,11 +139,12 @@ function system(){
 			}
 
 ////////////////////
-
+    var Cntrl_Test1;
+	var Cntrl_Test2;
+	var Cntrl_Test3;
 function CNTR(){
 
-	var Cntrl_Test1;
-	var Cntrl_Test2;
+	
 	
 	
 	 document.getElementById('tfbody3').style.display = "block"; 
@@ -142,16 +165,19 @@ function CNTR(){
 			
 		    var a22=math.divide(math.round(math.multiply(math.divide(-math.multiply(math.add(I,math.multiply(m,l,l)),b),den),1000)),1000);
 			
-			var a23=math.divide(math.round(math.multiply(math.divide(math.multiply(m,m,g,l,l),den),1000)),1000);;
-			var b2=math.divide(math.round(math.multiply(math.divide(math.add(I,math.multiply(m,l,l)),den),1000)),1000);;
+			var a23=math.divide(math.round(math.multiply(math.divide(math.multiply(m,m,g,l,l),den),1000)),1000);
+			var b2=math.divide(math.round(math.multiply(math.divide(math.add(I,math.multiply(m,l,l)),den),1000)),1000);
 			
-			var a42=math.divide(math.round(math.multiply(math.divide(-math.multiply(m,l,b),den),1000)),1000);;
-			var a43=math.divide(math.round(math.multiply(math.divide(math.add(math.multiply(m,g,l,M),math.multiply(m,g,l,m)),den),1000)),1000);;
-			var b4=math.divide(math.round(math.multiply(math.divide(math.multiply(m,l),den),1000)),1000);;
+			var a42=math.divide(math.round(math.multiply(math.divide(-math.multiply(m,l,b),den),1000)),1000);
+			var a43=math.divide(math.round(math.multiply(math.divide(math.add(math.multiply(m,g,l,M),math.multiply(m,g,l,m)),den),1000)),1000);
+			var b4=math.divide(math.round(math.multiply(math.divide(math.multiply(m,l),den),1000)),1000);
 			
 			var a11=a13=a14=a21=a24=a31=a32=a33=a41=a44=b1=b3=c12=c13=c14=c21=c22=c24=0;
 			var a12=a34=c11=c23=1;
 			
+			var mA = math.matrix([[a11, a12, a13, a14], [a21, a22, a23, a24], [a31, a32, a33, a34], [a41, a42, a43, a44]]);
+			var mB = math.matrix([[b1], [b2], [b3], [b4]]);
+			var mC= math.matrix([[c11, c12, c13, c14],[c21, c22, c23, c24]]);
 			
 			var aa11= a11*a11+a12*a21+a13*a31+a14*a41;
 			var aa12= a11*a12+a12*a22+a13*a32+a14*a42;
@@ -197,24 +223,24 @@ function CNTR(){
 			
 			//////////////////////////////////////////////
 			
-			var ab1= b1*a11 +b2*a12 +b3*a13 +b4*a14;
-			var ab2= b1*a21 +b2*a22 +b3*a23 +b4*a24;
-			var ab3= b1*a31 +b2*a32 +b3*a33 +b4*a34;
-			var ab4= b1*a41 +b2*a42 +b3*a43 +b4*a44;
+			var ab1= math.divide(math.round(math.multiply(b1*a11 +b2*a12 +b3*a13 +b4*a14,1000)),1000);
+			var ab2= math.divide(math.round(math.multiply(b1*a21 +b2*a22 +b3*a23 +b4*a24,1000)),1000);
+			var ab3= math.divide(math.round(math.multiply(b1*a31 +b2*a32 +b3*a33 +b4*a34,1000)),1000);
+			var ab4= math.divide(math.round(math.multiply(b1*a41 +b2*a42 +b3*a43 +b4*a44,1000)),1000);
 			
 			////////////////////////////////////////////////
 			
-			var aab1= b1*aa11 +b2*aa12 +b3*aa13 +b4*aa14;
-			var aab2= b1*aa21 +b2*aa22 +b3*aa23 +b4*aa24;
-			var aab3= b1*aa31 +b2*aa32 +b3*aa33 +b4*aa34;
-			var aab4= b1*aa41 +b2*aa42 +b3*aa43 +b4*aa44;
+			var aab1= math.divide(math.round(math.multiply(b1*aa11 +b2*aa12 +b3*aa13 +b4*aa14,1000)),1000);
+			var aab2= math.divide(math.round(math.multiply(b1*aa21 +b2*aa22 +b3*aa23 +b4*aa24,1000)),1000);
+			var aab3= math.divide(math.round(math.multiply(b1*aa31 +b2*aa32 +b3*aa33 +b4*aa34,1000)),1000);
+			var aab4= math.divide(math.round(math.multiply(b1*aa41 +b2*aa42 +b3*aa43 +b4*aa44,1000)),1000);
 			
 			/////////////////////////////////////////////
 			
-			var aaab1= b1*aaa11 +b2*aaa12 +b3*aaa13 +b4*aaa14;
-			var aaab2= b1*aaa21 +b2*aaa22 +b3*aaa23 +b4*aaa24;
-			var aaab3= b1*aaa31 +b2*aaa32 +b3*aaa33 +b4*aaa34;
-			var aaab4= b1*aaa41 +b2*aaa42 +b3*aaa43 +b4*aaa44;
+			var aaab1= math.divide(math.round(math.multiply(b1*aaa11 +b2*aaa12 +b3*aaa13 +b4*aaa14,1000)),1000);
+			var aaab2= math.divide(math.round(math.multiply(b1*aaa21 +b2*aaa22 +b3*aaa23 +b4*aaa24,1000)),1000);
+			var aaab3= math.divide(math.round(math.multiply(b1*aaa31 +b2*aaa32 +b3*aaa33 +b4*aaa34,1000)),1000);
+			var aaab4= math.divide(math.round(math.multiply(b1*aaa41 +b2*aaa42 +b3*aaa43 +b4*aaa44,1000)),1000);
 			
 			//////////////////////////////////////////////
 			var B= math.matrix([b1, b2, b3, b4]);
@@ -222,51 +248,68 @@ function CNTR(){
 			var AAB= math.matrix([aab1, aab2, aab3, aab4]);
 			var AAAB= math.matrix([aaab1, aaab2, aaab3, aaab4]);
 			
+			document.getElementById('matQcB').innerHTML = 'B ='+ B;
+			document.getElementById('matQcAB').innerHTML = ' AB ='+ AB;
+			document.getElementById('matQcAAB').innerHTML = ' A<sup>2</sup>B ='+ AAB;
+			document.getElementById('matQcAAAB').innerHTML = ' A<sup>3</sup>B ='+ AAAB;
+			
 			//var Qc1= math.matrix([[0, 1.818, -0.331, 12.209], [1.818, -0.331, 12.209, -4.433], [0, 4.545, -0.827, 141.873], [4.545, -0.827, 141.873, -31.349]]);
 			//var DQc1=math.det(Qc1);
 			//console.log(DQc1);
 			
 			var Qc= math.matrix([[b1, ab1, aab1, aaab1],[b2, ab2, aab2, aaab2],[b3, ab3, aab3, aaab3],[b4, ab4, aab4, aaab4]]);
-			var DQc=math.det(Qc);
+			
+			document.getElementById('matQc').innerHTML = ' Q<sub>c</sub> =['+ b1+',\t'+ab1+',\t'+aab1+',\t'+aaab1+';\t\t'+b2+','+ab2+',\t'+aab2+',\t'+aaab2+';\t\t'+b3+',\t'+ab3+',\t'+aab3+',\t'+aaab3+';\t\t'+b4+',\t'+ab4+',\t'+aab4+',\t'+aaab4+']'
+			
+			var DQc= math.divide(math.round(math.multiply(math.det(Qc),1000)),1000);
 			console.log(DQc);
 			//document.getElementById('RQc').value = 4;
 			//DQc=0;
 			
 			if (DQc!=0)
-			{  Cntrl_Test1=" Rank of Q<sub>c</sub> = Order of A = n = 4";
-			   Cntrl_Test2=" System is Controllable";
+			{  
+		
+		       
+		       Cntrl_Test1=" Rank of Q<sub>c</sub> = Order of A = n = 4";			   
+			   Cntrl_Test2="Determinent of Q<sub>c</sub> = " +DQc+ "";				    
+			   Cntrl_Test3=" System is completely controllable";
 			   document.getElementById("Cntrl_Test1").innerHTML=Cntrl_Test1;
 			   document.getElementById("Cntrl_Test2").innerHTML=Cntrl_Test2;
+			   document.getElementById("Cntrl_Test3").innerHTML=Cntrl_Test3;
 			}
 			   else 
 			   {   Cntrl_Test1=" Rank of Q<sub>c</sub> < Order of A = n = 4";
-			       Cntrl_Test2=" System is not Controllable";
+		           Cntrl_Test2="Determinent of Q<sub>c</sub> = " +DQc+ "";		
+			       Cntrl_Test3=" System is not controllable";
 			       document.getElementById("Cntrl_Test1").innerHTML=Cntrl_Test1;
 				   document.getElementById("Cntrl_Test2").innerHTML=Cntrl_Test2;
+				   document.getElementById("Cntrl_Test3").innerHTML=Cntrl_Test3;
 			   }
-			   
-	        	
-			
-	       		
-           
-			
-			
-			
-	        
-	        
-			
-			
-			
+		
+}
+function showRank(){
+document.getElementById("Cntrl_Test1").style.display="block";	
 }
 
+function showDetQc(){
+document.getElementById("Cntrl_Test2").style.display="block";	
+}
+
+function showinfo(){
+document.getElementById("Cntrl_Test3").style.display="block";
+}
+
+var Obsrl_Test5;
+var Obsrl_Test6;
+var Obsrl_Test7;
 
 function OBSR(){
-	var Obsrl_Test1;
+	/*var Obsrl_Test1;
 	var Obsrl_Test2;
 	var Obsrl_Test3;
 	var Obsrl_Test4;
 	var Obsrl_Test5;
-	var Obsrl_Test6;
+	var Obsrl_Test6;*/
 	
 	 document.getElementById('tfbody4').style.display = "block";
 	
@@ -339,39 +382,39 @@ function OBSR(){
 			
 			//////////////////////////////////////////////
 			
-			var ca11= c11*a11 +c12*a21 +c13*a31 +c14*a41;
-			var ca12= c11*a12 +c12*a22 +c13*a32 +c14*a42;
-			var ca13= c11*a13 +c12*a23 +c13*a33 +c14*a43;
-			var ca14= c11*a14 +c12*a24 +c13*a34 +c14*a44;
+			var ca11= math.divide(math.round(math.multiply(c11*a11 +c12*a21 +c13*a31 +c14*a41,1000)),1000);
+			var ca12= math.divide(math.round(math.multiply(c11*a12 +c12*a22 +c13*a32 +c14*a42,1000)),1000);
+			var ca13= math.divide(math.round(math.multiply(c11*a13 +c12*a23 +c13*a33 +c14*a43,1000)),1000);
+			var ca14= math.divide(math.round(math.multiply(c11*a14 +c12*a24 +c13*a34 +c14*a44,1000)),1000);
 			
-			var ca21= c21*a11 +c22*a21 +c23*a31 +c24*a41;
-			var ca22= c21*a12 +c22*a22 +c23*a32 +c24*a42;
-			var ca23= c21*a13 +c22*a23 +c23*a33 +c24*a43;
-			var ca24= c21*a14 +c22*a24 +c23*a34 +c24*a44;
+			var ca21= math.divide(math.round(math.multiply(c21*a11 +c22*a21 +c23*a31 +c24*a41,1000)),1000);
+			var ca22= math.divide(math.round(math.multiply(c21*a12 +c22*a22 +c23*a32 +c24*a42,1000)),1000);
+			var ca23= math.divide(math.round(math.multiply(c21*a13 +c22*a23 +c23*a33 +c24*a43,1000)),1000);
+			var ca24= math.divide(math.round(math.multiply(c21*a14 +c22*a24 +c23*a34 +c24*a44,1000)),1000);
 			
 			////////////////////////////////////////////////
 			
-			var caa11= c11*aa11 +c12*aa21 +c13*aa31 +c14*aa41;
-			var caa12= c11*aa12 +c12*aa22 +c13*aa32 +c14*aa42;
-			var caa13= c11*aa13 +c12*aa23 +c13*aa33 +c14*aa43;
-			var caa14= c11*aa14 +c12*aa24 +c13*aa34 +c14*aa44;
+			var caa11= math.divide(math.round(math.multiply(c11*aa11 +c12*aa21 +c13*aa31 +c14*aa41,1000)),1000);
+			var caa12= math.divide(math.round(math.multiply(c11*aa12 +c12*aa22 +c13*aa32 +c14*aa42,1000)),1000);
+			var caa13= math.divide(math.round(math.multiply(c11*aa13 +c12*aa23 +c13*aa33 +c14*aa43,1000)),1000);
+			var caa14= math.divide(math.round(math.multiply(c11*aa14 +c12*aa24 +c13*aa34 +c14*aa44,1000)),1000);
 			
-			var caa21= c21*aa11 +c22*aa21 +c23*aa31 +c24*aa41;
-			var caa22= c21*aa12 +c22*aa22 +c23*aa32 +c24*aa42;
-			var caa23= c21*aa13 +c22*aa23 +c23*aa33 +c24*aa43;
-			var caa24= c21*aa14 +c22*aa24 +c23*aa34 +c24*aa44;
+			var caa21= math.divide(math.round(math.multiply(c21*aa11 +c22*aa21 +c23*aa31 +c24*aa41,1000)),1000);
+			var caa22= math.divide(math.round(math.multiply(c21*aa12 +c22*aa22 +c23*aa32 +c24*aa42,1000)),1000);
+			var caa23= math.divide(math.round(math.multiply(c21*aa13 +c22*aa23 +c23*aa33 +c24*aa43,1000)),1000);
+			var caa24= math.divide(math.round(math.multiply(c21*aa14 +c22*aa24 +c23*aa34 +c24*aa44,1000)),1000);
 			
 			/////////////////////////////////////////////
 			
-			var caaa11= c11*aaa11 +c12*aaa21 +c13*aaa31 +c14*aaa41;
-			var caaa12= c11*aaa12 +c12*aaa22 +c13*aaa32 +c14*aaa42;
-			var caaa13= c11*aaa13 +c12*aaa23 +c13*aaa33 +c14*aaa43;
-			var caaa14= c11*aaa14 +c12*aaa24 +c13*aaa34 +c14*aaa44;
+			var caaa11= math.divide(math.round(math.multiply(c11*aaa11 +c12*aaa21 +c13*aaa31 +c14*aaa41,1000)),1000);
+			var caaa12= math.divide(math.round(math.multiply(c11*aaa12 +c12*aaa22 +c13*aaa32 +c14*aaa42,1000)),1000);
+			var caaa13= math.divide(math.round(math.multiply(c11*aaa13 +c12*aaa23 +c13*aaa33 +c14*aaa43,1000)),1000);
+			var caaa14= math.divide(math.round(math.multiply(c11*aaa14 +c12*aaa24 +c13*aaa34 +c14*aaa44,1000)),1000);
 			
-			var caaa21= c21*aaa11 +c22*aaa21 +c23*aaa31 +c24*aaa41;
-			var caaa22= c21*aaa12 +c22*aaa22 +c23*aaa32 +c24*aaa42;
-			var caaa23= c21*aaa13 +c22*aaa23 +c23*aaa33 +c24*aaa43;
-			var caaa24= c21*aaa14 +c22*aaa24 +c23*aaa34 +c24*aaa44;
+			var caaa21= math.divide(math.round(math.multiply(c21*aaa11 +c22*aaa21 +c23*aaa31 +c24*aaa41,1000)),1000);
+			var caaa22= math.divide(math.round(math.multiply(c21*aaa12 +c22*aaa22 +c23*aaa32 +c24*aaa42,1000)),1000);
+			var caaa23= math.divide(math.round(math.multiply(c21*aaa13 +c22*aaa23 +c23*aaa33 +c24*aaa43,1000)),1000);
+			var caaa24= math.divide(math.round(math.multiply(c21*aaa14 +c22*aaa24 +c23*aaa34 +c24*aaa44,1000)),1000);
 			
 			//////////////////////////////////////////////
 			var C= math.matrix([[c11, c12, c13, c14],[c21, c22, c23, c24]]);
@@ -379,12 +422,17 @@ function OBSR(){
 			var CAA= math.matrix([[caa11, caa12, caa13, caa14],[caa21, caa22, caa23, caa24]]);
 			var CAAA= math.matrix([[caaa11, caaa12, caaa13, caaa14],[caaa21, caaa22, caaa23, caaa24]]);
 			
+			
+			
 			//var Qc1= math.matrix([[0, 1.818, -0.331, 12.209], [1.818, -0.331, 12.209, -4.433], [0, 4.545, -0.827, 141.873], [4.545, -0.827, 141.873, -31.349]]);
 			//var DQc1=math.det(Qc1);
 			//console.log(DQc1);
 			
 			var Qoo= math.matrix([[c11, c12, c13, c14],[c21, c22, c23, c24],[ca11, ca12, ca13, ca14],[ca21, ca22, ca23, ca24]]);
-			var DQoo=math.det(Qoo);
+			
+			document.getElementById('matQo').innerHTML = 'Matrix Q<sub>o</sub> ='+ Qoo;
+			
+			var DQoo= math.divide(math.round(math.multiply(math.det(Qoo),1000)),1000);
 			console.log(DQoo);
 			
 			//document.getElementById('Qoo').value = DQoo;
@@ -413,7 +461,12 @@ function OBSR(){
 			
 			console.log(Qo3);
 			
-			if (DQo1!=0)
+			document.getElementById('matQoC').innerHTML = ' C ='+ C;
+			document.getElementById('matQoCA').innerHTML = ' CA ='+ CA;
+			document.getElementById('matQoCAA').innerHTML = ' CA<sup>2</sup> ='+ CAA;
+			document.getElementById('matQoCAAA').innerHTML = ' CA<sup>3</sup> ='+ CAAA;
+			
+		/*	if (DQo1!=0)
 			{  Obsrl_Test1=" Rank of Q<sub>o1</sub> = Order of A = n = 4";
 			   Obsrl_Test2=" System is Observable with only out-put 1";
 			   document.getElementById("Obsrl_Test1").innerHTML=Obsrl_Test1;
@@ -438,25 +491,61 @@ function OBSR(){
 			       document.getElementById("Obsrl_Test3").innerHTML=Obsrl_Test3;
 				   document.getElementById("Obsrl_Test4").innerHTML=Obsrl_Test4;
 			   }
-			   
+			   */
 			   if (DQoo!=0)
 			{  Obsrl_Test5=" Rank of Q<sub>o</sub> = Order of A = n = 4";
-			   Obsrl_Test6=" System is Observable";
+			   Obsrl_Test6="Determinent of Q<sub>o</sub> = " +DQoo+ "";	
+			   Obsrl_Test7=" System is completely observable";
 			   document.getElementById("Obsrl_Test5").innerHTML=Obsrl_Test5;
 			   document.getElementById("Obsrl_Test6").innerHTML=Obsrl_Test6;
+			   document.getElementById("Obsrl_Test7").innerHTML=Obsrl_Test7;
 			}
 			   else 
 			   {   Obsrl_Test5=" Rank of Q<sub>o</sub> < Order of A = n = 4";
-			       Obsrl_Test6=" System is not Observable";
+		           Obsrl_Test6="Determinent of Q<sub>o</sub> = " +DQoo+ "";	
+			       Obsrl_Test7=" System is not observable";
 			       document.getElementById("Obsrl_Test5").innerHTML=Obsrl_Test5;
 				   document.getElementById("Obsrl_Test6").innerHTML=Obsrl_Test6;
+				   document.getElementById("Obsrl_Test7").innerHTML=Obsrl_Test7;
 			   }
 			
 	        	
 }
 
+function showRankQo(){
+document.getElementById("Obsrl_Test5").style.display="block";	
+}
+
+function showDetQo(){
+document.getElementById("Obsrl_Test6").style.display="block";	
+}
+
+function showinfoQo(){
+document.getElementById("Obsrl_Test7").style.display="block";
+}
+
+function test1(){
+	document.getElementById('dropdownMenuButton1').innerHTML='Controllability';
+	document.getElementById('chktest').value=0;
+	document.getElementById('Trun').style.display="block";
+}
+function test2(){
+	document.getElementById('dropdownMenuButton1').innerHTML='Observability';
+	document.getElementById('chktest').value=1;
+	document.getElementById('Trun').style.display="block";
+}
 
 
+
+function str(){
+	if(document.getElementById('chktest').value==0){
+		CNTR();
+	}
+	if(document.getElementById('chktest').value==1){
+		OBSR();
+	}
+	
+}
 
 
 
