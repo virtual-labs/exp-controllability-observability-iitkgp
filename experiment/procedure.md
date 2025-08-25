@@ -46,20 +46,20 @@
 <b>Fig. 5. Run button to get the results of selected test </b>						  
 </div>
 
-6. Click on the 'Rank' or 'Determinant'  or "inference' buttons to get the the Controllability test. 
+6. Click on the 'Rank' or 'Determinant'  or "Inference' buttons to get the the Controllability test. 
 
 <div align="center">
 <img class="img-fluid"  src="./images/Qc.png" alt="">
 
-<b>Fig. 6. Rank, determinant and inference of the Controllability test </b>						  
+<b>Fig. 6. Rank, Determinant and Inference of the Controllability test </b>						  
 </div> 
 
-7. Click on the 'Rank' or 'Determinant'  or "inference' buttons to get the the Observability test. 
+7. Click on the 'Rank' or 'Determinant'  or "Inference' buttons to get the the Observability test. 
 
 <div align="center">
 <img class="img-fluid"  src="./images/Qo.png" alt="">
 
-<b>Fig. 7. Rank, determinant and inference of the Observability test </b>						  
+<b>Fig. 7. Rank, Determinant and Inference of the Observability test </b>						  
 </div>
 
 8. Click on 'Clear' button to enter the new values of quantities.
