@@ -15,9 +15,6 @@
 
 <div align="center">
 <img class="img-fluid"  src="./images/2.png" alt="">           
-</div><br/>
-<div align="center">
-<img class="img-fluid"  src="./images/Prod_2_1.png" alt="">
 
 <b>Fig. 2. Button to get the state Space form of the system</b>							  
 </div>
