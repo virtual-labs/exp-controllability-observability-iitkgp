@@ -13,7 +13,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "Q2. What is the input matrix of the differential equations system?<br/><img src='./images/prq2.png'/>",
+      "question": "Q2. For the system <img src='./images/prq2.png'/> with state variables <img src='./images/sv.png'/> and state matrix <img src='./images/sm.png'/>, find the input matrix assuming a state space model <img src='./images/ssm.png'/> that absorbs <img src='./images/du.png'/> into the input matrix.",
       "answers": {
         "a": "<img src='./images/prq2a.png'/>",
         "b": "<img src='./images/prq2b.png'/>",
@@ -37,8 +37,8 @@
     {
       "question": "Q4. _________ is the smallest set of variables such that the knowledge of these variables at t=t<sub>0</sub>, together with the knowledge of the input for t &ge; t<sub>0</sub>, completely determines the behavior of the system for any t &ge; t<sub>0</sub>.",
       "answers": {
-        "a": "State Variable",
-        "b": "State Vector",
+        "a": "Control input",
+        "b": "System parameter",
         "c": "State Space",
         "d": "State"
       },
