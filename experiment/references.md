@@ -7,4 +7,6 @@
 								
 #### Video Lectures
 
-<a href="https://nptel.ac.in/courses/108103008" target="_blank">Click here for NPTEL Lecture on Digital Control Systems</a>
+<a href="https://www.youtube.com/watch?v=Xg2ijwDkdIA&list=PLyqSpQzTE6M99jfnT8Lf_45NAQnNuwNO8&index=14" target="_blank">Click here for NPTEL Lecture on "Controllabilty", State Space Approach to Control System Analysis and Design.</a>
+
+<a href="https://www.youtube.com/watch?v=vnTLyTS5TC8&list=PLyqSpQzTE6M99jfnT8Lf_45NAQnNuwNO8&index=16" target="_blank">Click here for NPTEL Lecture on "Observability", State Space Approach to Control System Analysis and Design.</a>
